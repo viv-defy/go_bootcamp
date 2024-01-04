@@ -4,24 +4,6 @@ import (
 	"fmt"
 )
 
-func greaterThan(n int) func(int) bool {
-	return func(x int) bool {
-		return x > n
-	}
-}
-
-func lessThan(n int) func(int) bool {
-	return func(x int) bool {
-		return x < n
-	}
-}
-
-func multipleOf(n int) func(int) bool {
-	return func(x int) bool {
-		return x%n == 0
-	}
-}
-
 func All(nums []int, conditions []func(int) bool) []int {
 	res := make([]int, 0)
 	for _, v := range nums {

@@ -2,10 +2,6 @@ package basic_number_filtering
 
 import "fmt"
 
-func even(n int) bool {
-	return n%2 == 0
-}
-
 func evenNumbers(nums []int) []int {
 	res := make([]int, 0)
 	for _, v := range nums {

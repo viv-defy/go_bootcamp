@@ -2,10 +2,6 @@ package basic_number_filtering
 
 import "fmt"
 
-func odd(n int) bool {
-	return !even(n)
-}
-
 func oddNumbers(nums []int) []int {
 	res := make([]int, 0)
 	for _, v := range nums {
