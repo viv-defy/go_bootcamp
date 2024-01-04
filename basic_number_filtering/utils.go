@@ -6,12 +6,12 @@ import (
 	"sort"
 )
 
-func even(n int) bool {
+func isEven(n int) bool {
 	return n%2 == 0
 }
 
-func odd(n int) bool {
-	return !even(n)
+func isOdd(n int) bool {
+	return n%2 != 0
 }
 
 func isPrime(n int) bool {
@@ -26,19 +26,19 @@ func isPrime(n int) bool {
 	return true
 }
 
-func greaterThan(n int) func(int) bool {
+func isGreaterThan(n int) func(int) bool {
 	return func(x int) bool {
 		return x > n
 	}
 }
 
-func lessThan(n int) func(int) bool {
+func isLessThan(n int) func(int) bool {
 	return func(x int) bool {
 		return x < n
 	}
 }
 
-func multipleOf(n int) func(int) bool {
+func isMultipleOf(n int) func(int) bool {
 	return func(x int) bool {
 		return x%n == 0
 	}

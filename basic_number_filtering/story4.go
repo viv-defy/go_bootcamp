@@ -5,7 +5,7 @@ import "fmt"
 func oddAndPrimeNumbers(nums []int) []int {
 	res := make([]int, 0)
 	for _, v := range nums {
-		if isPrime(v) && odd(v) {
+		if isPrime(v) && isOdd(v) {
 			res = append(res, v)
 		}
 	}

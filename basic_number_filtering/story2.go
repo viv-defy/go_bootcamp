@@ -7,7 +7,7 @@ import (
 func oddNumbers(nums []int) []int {
 	res := make([]int, 0)
 	for _, v := range nums {
-		if odd(v) {
+		if isOdd(v) {
 			res = append(res, v)
 		}
 	}

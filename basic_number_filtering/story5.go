@@ -2,14 +2,10 @@ package basic_number_filtering
 
 import "fmt"
 
-func isMultipleOf(n, m int) bool {
-	return n%m == 0
-}
-
 func isEvenAndMultipleOf5(nums []int) []int {
 	res := make([]int, 0)
 	for _, v := range nums {
-		if even(v) && isMultipleOf(v, 5) {
+		if isEven(v) && isMultipleOf(5)(v) {
 			res = append(res, v)
 		}
 	}
