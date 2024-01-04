@@ -11,4 +11,5 @@ func main() {
 	basic_number_filtering.TestStory4()
 	basic_number_filtering.TestStory5()
 	basic_number_filtering.TestStory6()
+	basic_number_filtering.TestStory7()
 }
