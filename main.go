@@ -6,4 +6,5 @@ import (
 
 func main() {
 	basic_number_filtering.TestStory1()
+	basic_number_filtering.TestStory2()
 }
