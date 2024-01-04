@@ -1,9 +1,9 @@
 package main
 
 import (
-	"fmt"
+	"go_bootcamp/basic_number_filtering"
 )
 
 func main() {
-	fmt.Println("Hello, World!")
+	basic_number_filtering.TestStory1()
 }
