@@ -1,6 +1,8 @@
 package basic_number_filtering
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func evenNumbers(nums []int) []int {
 	res := make([]int, 0)
@@ -13,23 +15,9 @@ func evenNumbers(nums []int) []int {
 }
 
 func TestStory1() {
-	fmt.Println("Basic Number Filtering - Story1")
-	res := evenNumbers(make([]int, 0))
-	if len(res) == 0 {
-		fmt.Println("PASS - case1: Empty list")
-	} else {
-		fmt.Println("FAIL - case1: Empty list")
-	}
+	fmt.Println("\nBasic Number Filtering - Story1")
 
-	res = evenNumbers([]int{0, 1, 2, 3, 4, 5, 6, 7, 8})
-	i := 0
-	for ; i < 5; i++ {
-		if res[i] != i*2 {
-			fmt.Println("FAIL - case2: {0, 1, 2, 3, 4, 5, 6, 7, 8}")
-			break
-		}
-	}
-	if i == 5 {
-		fmt.Println("PASS - case2: {0, 1, 2, 3, 4, 5, 6, 7, 8}")
-	}
+	res := evenNumbers([]int{0, 1, 2, 3, 4, 5, 6, 7, 8})
+	expected := []int{0, 2, 4, 6, 8}
+	test(res, expected, "case 1: {0, 1, 2, 3, 4, 5, 6, 7, 8}")
 }

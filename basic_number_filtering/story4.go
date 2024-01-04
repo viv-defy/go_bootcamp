@@ -13,25 +13,9 @@ func oddAndPrimeNumbers(nums []int) []int {
 }
 
 func TestStory4() {
-	fmt.Println("Basic Number Filtering - Story4")
-	res := oddAndPrimeNumbers(make([]int, 0))
-	if len(res) == 0 {
-		fmt.Println("PASS - case1: Empty list")
-	} else {
-		fmt.Println("FAIL - case1: Empty list")
-	}
+	fmt.Println("\nBasic Number Filtering - Story4")
 
-	res = oddAndPrimeNumbers([]int{1, 2, 3, 4, 5, 6, 7, 8})
+	res := oddAndPrimeNumbers([]int{1, 2, 3, 4, 5, 6, 7, 8})
 	expected := []int{3, 5, 7}
-	var failed bool
-	for i, v := range expected {
-		if res[i] != v {
-			failed = true
-			fmt.Println("FAIL - case2: {1, 2, 3, 4, 5, 6, 7, 8}")
-			break
-		}
-	}
-	if !failed {
-		fmt.Println("PASS - case2: {1, 2, 3, 4, 5, 6, 7, 8}")
-	}
+	test(res, expected, "case 1: {1, 2, 3, 4, 5, 6, 7, 8}")
 }
