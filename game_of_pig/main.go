@@ -5,6 +5,7 @@ import (
 	"math/rand"
 	"os"
 	"strconv"
+	"strings"
 )
 
 func findMin(a, b int) int {
@@ -57,26 +58,9 @@ func game(p1, p2 player) player {
 	}
 }
 
-func story1() {
-	if len(os.Args) != 3 {
-		fmt.Println("Usage: ./<main> <player1 hold> <player2 hold>")
-		return
-	}
-
-	p1Hold, err := strconv.Atoi(os.Args[1])
-	if err != nil {
-		fmt.Println("Invalid argument 1")
-		return
-	}
+func simulateGames(p1Hold, p2Hold int) {
 	p1 := player{id: 1, strategy: p1Hold}
-
-	p2Hold, err := strconv.Atoi(os.Args[2])
-	if err != nil {
-		fmt.Println("Invalid argument 2")
-		return
-	}
 	p2 := player{id: 2, strategy: p2Hold}
-
 	var scoreBoard [2]int
 	for i := 0; i < 10; i++ {
 		winner := game(p1, p2)
@@ -90,6 +74,65 @@ func story1() {
 		scoreBoard[1], float64(scoreBoard[1])/10.0*100.0)
 }
 
+func fixStartegies(p1Start, p1End, p2Start, p2End int) {
+	for i := p1Start; i <= p1End; i++ {
+		for j := p2Start; j <= p2End; j++ {
+			if i == j {
+				continue
+			}
+			simulateGames(i, j)
+		}
+	}
+}
+
+func story1() {
+	p1Hold, err := strconv.Atoi(os.Args[1])
+	if err != nil {
+		fmt.Println("Invalid argument 1")
+		return
+	}
+
+	p2Hold, err := strconv.Atoi(os.Args[2])
+	if err != nil {
+		fmt.Println("Invalid argument 2")
+		return
+	}
+
+	fixStartegies(p1Hold, p1Hold, p2Hold, p2Hold)
+}
+
+func story2() {
+	p1Hold, err := strconv.Atoi(os.Args[1])
+	if err != nil {
+		fmt.Println("Invalid argument 1")
+		return
+	}
+
+	p2Range := strings.Split(os.Args[2], "-")
+	p2Start, err := strconv.Atoi(p2Range[0])
+	if err != nil {
+		fmt.Println("Invalid argument 2")
+		return
+	}
+	p2End, err := strconv.Atoi(p2Range[1])
+	if err != nil {
+		fmt.Println("Invalid argument 2")
+		return
+	}
+	if p2Start > p2End {
+		fmt.Println("Invalid argument 2")
+		return
+	}
+
+	fixStartegies(p1Hold, p1Hold, p2Start, p2End)
+}
+
 func main() {
+	if len(os.Args) != 3 {
+		fmt.Println("Usage: ./<main> <player1 strategy> <player2 strategy>")
+		return
+	}
+
 	story1()
+	story2()
 }
