@@ -3,4 +3,5 @@ go 1.21.5
 use (
 	./basic_number_filtering
 	./student_grading
+	./game_of_pig
 )
