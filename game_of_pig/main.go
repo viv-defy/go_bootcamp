@@ -57,21 +57,7 @@ func game(p1, p2 player) player {
 	}
 }
 
-func story1(p1, p2 player) {
-	var scoreBoard [2]int
-	for i := 0; i < 10; i++ {
-		winner := game(p1, p2)
-		scoreBoard[winner.id-1]++
-		p1.reset()
-		p2.reset()
-	}
-	fmt.Printf("Holding at  %v vs Holding at  %v: wins: %v/10 (%.1f%%), losses: %v/10 (%.1f%%)\n",
-		p1.strategy, p2.strategy,
-		scoreBoard[0], float64(scoreBoard[0])/10.0*100.0,
-		scoreBoard[1], float64(scoreBoard[1])/10.0*100.0)
-}
-
-func main() {
+func story1() {
 	if len(os.Args) != 3 {
 		fmt.Println("Usage: ./<main> <player1 hold> <player2 hold>")
 		return
@@ -91,5 +77,19 @@ func main() {
 	}
 	p2 := player{id: 2, strategy: p2Hold}
 
-	story1(p1, p2)
+	var scoreBoard [2]int
+	for i := 0; i < 10; i++ {
+		winner := game(p1, p2)
+		scoreBoard[winner.id-1]++
+		p1.reset()
+		p2.reset()
+	}
+	fmt.Printf("Holding at  %v vs Holding at  %v: wins: %v/10 (%.1f%%), losses: %v/10 (%.1f%%)\n",
+		p1.strategy, p2.strategy,
+		scoreBoard[0], float64(scoreBoard[0])/10.0*100.0,
+		scoreBoard[1], float64(scoreBoard[1])/10.0*100.0)
+}
+
+func main() {
+	story1()
 }
