@@ -1,4 +1,4 @@
-package basic_number_filtering
+package numfilter
 
 import (
 	"sort"

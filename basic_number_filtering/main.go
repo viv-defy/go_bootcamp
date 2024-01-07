@@ -1,4 +1,4 @@
-package basic_number_filtering
+package numfilter
 
 func EvenNumbers(nums []int) []int {
 	res := make([]int, 0)
