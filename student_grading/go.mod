@@ -1,4 +1,4 @@
-module student_grading
+module grading
 
 go 1.19
 

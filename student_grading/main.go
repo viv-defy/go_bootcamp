@@ -1,4 +1,4 @@
-package student_grading
+package grading
 
 import (
 	"bufio"
